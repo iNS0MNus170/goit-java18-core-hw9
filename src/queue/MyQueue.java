@@ -68,9 +68,13 @@ public class MyQueue<T> {
 
     @Override
     public String toString() {
+        if (size == 0) {
+            return "[]";
+        }
         StringJoiner sj = new StringJoiner(",", "[", "]");
         for (int i = 0; i < size; i++) {
-            sj.add(elements[(head + i) % elements.length].toString());
+            T element = elements[(head + i) % elements.length];
+            sj.add(element == null ? "null" : element.toString()); // Обробляємо значення null коректно
         }
         return sj.toString();
     }

@@ -64,10 +64,14 @@ public class MyStack<T> {
 
     @Override
     public String toString() {
+        if(size==0){
+            return"[]";
+        }
         StringJoiner sj = new StringJoiner(",", "[", "]");
         for (int i = 0; i < size; i++) {
-            sj.add(elements[i].toString());
+            sj.add(elements[i] == null ? "null" : elements[i].toString());
         }
         return sj.toString();
     }
+
 }

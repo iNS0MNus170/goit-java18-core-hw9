@@ -45,7 +45,7 @@ public class MyHashMap<K, V> {
         } else {
             Node<K, V> current = table[hash];
             while (true) {
-                if (current.key.equals(key)) {
+                if (current.key == null || current.key.equals(key)) {
                     current.value = value;
                     return;
                 }
@@ -67,7 +67,7 @@ public class MyHashMap<K, V> {
         Node<K, V> current = table[hash];
         Node<K, V> prev = null;
         while (current != null) {
-            if (current.key.equals(key)) {
+            if (current.key == null || current.key.equals(key)) {
                 if (prev == null) {
                     table[hash] = current.next;
                 } else {
@@ -95,7 +95,7 @@ public class MyHashMap<K, V> {
         int hash = hash(key);
         Node<K, V> current = table[hash];
         while (current != null) {
-            if (current.key.equals(key)) {
+            if (current.key == null || current.key.equals(key)) {
                 return current.value;
             }
             current = current.next;

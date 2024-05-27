@@ -69,7 +69,7 @@ public class MyStack<T> {
         }
         StringJoiner sj = new StringJoiner(",", "[", "]");
         for (int i = 0; i < size; i++) {
-            sj.add(elements[i] == null ? "null" : elements[i].toString());
+            sj.add(elements[i] == null ? "null" : elements[i].toString());  // Обробляємо значення null коректно
         }
         return sj.toString();
     }
